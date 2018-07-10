@@ -1,0 +1,45 @@
+#include <iostream>
+#include <algorithm>
+#include "Card.h"
+
+Card::Card(Value v, Suit s, bool f)
+  {
+    value = v;
+    suit = s;
+    faceUp = f;
+  }
+//overloads << operator so Card object can be sent to cout
+std::ostream& operator << (std::ostream& os, const Card& aCard)
+{
+  const std::string RANKS[] = {"0", "A", "2", "3", "4", "5", "6", "7", "8", "9",
+                           "10", "J", "Q", "K"};
+
+  const std::string SUITS[] = {"s", "h", "d", "c"};
+
+  if (aCard.faceUp)
+      os << RANKS[aCard.value] << SUITS[aCard.suit];
+  else
+      os << "XX";
+
+  return os;
+}
+int Card::getValue()
+  {
+    if (faceUp) {
+      // Cards higher than 10 are valued at 10
+      return value > 10 ? 10 : value;
+    }
+    return 0;
+  }
+int Card::getSuit()
+  {
+    return suit;
+  }
+void Card::print()
+  {
+    std::cout << "Suit: " << suit << ", value: " << value << std::endl;
+  }
+void Card::flip()
+  {
+    faceUp = !faceUp;
+  }
