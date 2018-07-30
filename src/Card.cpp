@@ -8,7 +8,7 @@ Card::Card(Value v, Suit s, bool f)
   suit = s;
   faceUp = f;
 }
-int Card::getValue()
+int Card::getValue() const
 {
   if (faceUp) {
     // Cards higher than 10 are valued at 10
@@ -16,11 +16,11 @@ int Card::getValue()
   }
   return 0;
 }
-int Card::getSuit()
+int Card::getSuit() const
 {
   return suit;
 }
-void Card::print()
+void Card::print() const
 {
   std::cout << "Suit: " << suit << ", value: " << value << std::endl;
 }

@@ -1,5 +1,5 @@
-#include <iostream>
 #pragma once
+#include <iostream>
 
 class Card
 {
@@ -10,9 +10,9 @@ class Card
     friend std::ostream& operator<<(std::ostream& os, const Card& aCard);
 
     Card(Value v, Suit s, bool f);
-    int getValue();
-    int getSuit();
-    void print();
+    int getValue() const;
+    int getSuit() const;
+    void print() const;
     void flip();
   private:
     Suit suit;

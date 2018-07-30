@@ -11,7 +11,7 @@ void Hand::addCard(Card card)
 {
   cards.push_back(card);
 }
-int Hand::getValue()
+int Hand::getValue() const
 {
   int value = 0;
   bool hasAce = false;

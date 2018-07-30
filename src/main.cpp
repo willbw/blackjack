@@ -1,28 +1,35 @@
 #include <iostream>
 #include <vector>
-#include <algorithm>
+
 #include "Card.h"
 #include "Hand.h"
-#include "Deck.h"
+#include "Shoe.h"
+#include "Person.h"
+#include "Dealer.h"
+#include "Player.h"
+#include "Game.h"
 
+using std::cin;
 using std::cout;
 using std::endl;
 
-class Player {};
-class Dealer {};
-class Game {};
-class Shoe {}; // Shoe is 'many decks of cards' - usually 6
+int DECKS_IN_SHOE = 6;
 
 int main() {
-  Card card1 = Card(Card::Jack, Card::Spades, true);
-  Card card2 = Card(Card::Ten, Card::Hearts, true);
-  cout << card1 << endl;
-  cout << card2 << endl;
-  Hand h;
-  h.addCard(card1);
-  h.addCard(card2);
-  cout << h << endl;
-  cout << "Flipping the second card" << endl;
-  h.cards[1].flip();
-  cout << h << endl;
+  srand(time(NULL));
+  Game game = Game();
+  Shoe shoe = Shoe(DECKS_IN_SHOE);
+  Player player = Player("Will", &game);
+  Dealer dealer = Dealer(&game);
+  game.setShoe(&shoe);
+  game.setDealer(&dealer);
+  game.setPlayer(&player);
+
+  while (true)
+  {
+    std::string s;
+    std::cin >> s;
+    player.hit();
+    cout << player << endl;
+  }
 }
