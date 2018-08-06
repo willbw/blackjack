@@ -8,8 +8,10 @@
 
 class Game;
 
-class Dealer : Person
+class Dealer : public Person
 {
   public:
     Dealer(Game* game);
+    bool hasUnflippedCards() const;
+    void revealCards();
 };

@@ -9,7 +9,7 @@ class Shoe
   public:
     Shoe(int numDecks);
     friend std::ostream& operator << (std::ostream& os, const Shoe& s);
-    Card deal();
+    Card deal(bool flip);
     void shuffle();
   private:
     std::vector<Card> cards;

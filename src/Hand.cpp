@@ -7,10 +7,12 @@ Hand::Hand()
 {
   cards = std::vector<Card>();
 }
+
 void Hand::addCard(Card card)
 {
   cards.push_back(card);
 }
+
 int Hand::getValue() const
 {
   int value = 0;
@@ -21,6 +23,28 @@ int Hand::getValue() const
   }
   return value <= 11 && hasAce ?  value + 10 : value;
 }
+
+void Hand::clear()
+{
+  cards.clear();
+}
+
+bool Hand::hasUnflippedCards() const
+{
+  for (Card card : cards) {
+    if (!card.isFaceUp()) return true;
+  }
+  return false;
+}
+
+void Hand::revealCards()
+{
+  for (Card card : cards) {
+    if (!card.isFaceUp()) card.flip();
+  }
+  return;
+}
+
 std::ostream& operator<<(std::ostream& os, const Hand& hand)
 {
   for (Card card : hand.cards) {

@@ -35,10 +35,11 @@ void Shoe::shuffle() {
   std::shuffle(cards.begin(), cards.end(), g);
 }
 
-Card Shoe::deal() {
+Card Shoe::deal(bool flip) {
   int index = cards.size() - 1;
   Card card = cards[index];
   cards.pop_back();
+  if (flip) card.flip();
   return card;
 }
 

@@ -5,11 +5,12 @@
 #include "Player.h"
 #include "Shoe.h"
 
+// 'Mediator' style class
 class Game
 {
   public:
     Game();
-    Card getCard();
+    Card getCard(bool flip);
     void setShoe(Shoe* shoe);
     void setDealer(Dealer* dealer);
     void setPlayer(Player* player);

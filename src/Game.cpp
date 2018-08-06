@@ -4,9 +4,9 @@ Game::Game()
 {
 }
 
-Card Game::getCard()
+Card Game::getCard(bool flip)
 {
-  return shoe->deal();
+  return shoe->deal(flip);
 }
 
 void Game::setShoe(Shoe* shoe)
@@ -24,3 +24,4 @@ void Game::setPlayer(Player* player)
 {
   this->player = player;
 }
+

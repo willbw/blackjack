@@ -24,18 +24,23 @@ void Person::showHand() const
   std::cout << hand << std::endl;
 }
 
-void Person::hit()
+void Person::getCard(bool flip)
 {
   if (bust) {
     std::cout << "Sorry, " << name << ", you're bust. No more cards for you." << std::endl;
     return;
   }
-  hand.addCard(game->getCard());
+  hand.addCard(game->getCard(flip));
   if (getValueOfHand() > 21) {
     bust = true;
-    std::cout << name << " is bust!" << std::endl;
+    std::cout << "Oh no, " << name << "! you've gone bust!" << std::endl;
   }
   return;
+}
+
+void Person::clearHand() {
+  hand.clear();
+  bust = false;
 }
 
 void Person::stand()

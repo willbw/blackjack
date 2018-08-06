@@ -13,7 +13,8 @@ class Person
     int getValueOfHand() const;
     bool isBust() const;
     void showHand() const;
-    void hit();
+    void getCard(bool flip=false);
+    void clearHand();
     void stand();
     friend std::ostream& operator << (std::ostream& os, const Person& p);
   protected:

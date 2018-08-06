@@ -1,5 +1,5 @@
 CXX = clang++
-CXXFLGS = -Wall -g -std=c++11
+CXXFLAGS = -Wall -std=c++11 -g
 
 main: main.o Card.o Hand.o Shoe.o Person.o Player.o Dealer.o Game.o
 	$(CXX) $(CXXFLAGS) -o main main.o Card.o Hand.o Shoe.o Person.o Player.o Dealer.o Game.o

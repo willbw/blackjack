@@ -12,6 +12,7 @@ class Card
     Card(Value v, Suit s, bool f);
     int getValue() const;
     int getSuit() const;
+    bool isFaceUp() const;
     void print() const;
     void flip();
   private:
